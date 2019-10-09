@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1569297096 source:c:\users\jalva\documents\github\aa\euclides\main.cpp
+	<iostream>
+	<time.h>
+	<NTL/ZZ.h>
+
