@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1569861513 source:c:\users\jalva\documents\github\aa\afin\main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<ctime>
+	"afin.h"
+
+1569861573 c:\users\jalva\documents\github\aa\afin\include\afin.h
+	<iostream>
+	<string>
+	<ctime>
+
+1569861513 source:c:\users\jalva\documents\github\aa\afin\src\afin.cpp
+	"afin.h"
+
