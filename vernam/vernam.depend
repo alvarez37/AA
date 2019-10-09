@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1569862086 source:c:\users\jalva\documents\github\aa\vernam\src\vernam.cpp
+	"vernam.h"
+
+1568656867 c:\users\jalva\documents\github\aa\vernam\include\vernam.h
+	<iostream>
+	<string>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+
+1569862297 source:c:\users\jalva\documents\github\aa\vernam\main.cpp
+	"vernam.h"
+	<fstream>
+	<iostream>
+	<stdlib.h>
+	<string>
+

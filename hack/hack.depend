@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1567433789 source:c:\users\jalva\documents\github\aa\hack\main.cpp
+	<NTL/ZZ.h>
+	<iostream>
+	<cmath>
+	<string>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

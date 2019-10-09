@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1569863994 source:c:\users\jalva\documents\github\aa\scitala\main.cpp
+	<string>
+	"scitala.h"
+	<fstream>
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1568659013 c:\users\jalva\documents\github\aa\scitala\include\scitala.h
+	<iostream>
+	<string>
+	<sstream>
+
+1568659746 source:c:\users\jalva\documents\github\aa\scitala\src\scitala.cpp
+	"scitala.h"
+

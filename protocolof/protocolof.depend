@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1570599172 source:c:\users\jalva\documents\github\aa\protocolof\src\protocolo.cpp
+	"protocolo.h"
+
+1570599176 c:\users\jalva\documents\github\aa\protocolof\include\protocolo.h
+	<iostream>
+	<string>
+	<cstdlib>
+	<ctime>
+	"afin.h"
+	"enigma.h"
+	"scitala.h"
+	"vigenere.h"
+
+1570596983 source:c:\users\jalva\documents\github\aa\protocolof\main.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<stdlib.h>
+	<string>
+	"protocolo.h"
+
+1570592995 c:\users\jalva\documents\github\aa\protocolof\include\scitala.h
+	<iostream>
+	<string>
+	<sstream>
+
+1570585130 source:c:\users\jalva\documents\github\aa\protocolof\src\scitala.cpp
+	"scitala.h"
+
+1570594157 source:c:\users\jalva\documents\github\aa\protocolof\src\afin.cpp
+	"afin.h"
+
+1570592980 c:\users\jalva\documents\github\aa\protocolof\include\afin.h
+	<iostream>
+	<string>
+	<ctime>
+
+1570596535 source:c:\users\jalva\documents\github\aa\protocolof\src\enigma.cpp
+	"enigma.h"
+
+1570596591 c:\users\jalva\documents\github\aa\protocolof\include\enigma.h
+	<iostream>
+	<string>
+	<sstream>
+	<cstdlib>
+	<ctime>
+
+1570597829 source:c:\users\jalva\documents\github\aa\protocolof\src\vigenere.cpp
+	"vigenere.h"
+
+1570598879 c:\users\jalva\documents\github\aa\protocolof\include\vigenere.h
+	<iostream>
+	<string>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

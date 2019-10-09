@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1570580052 source:c:\users\jalva\documents\github\aa\turing\main.cpp
+	"turing.h"
+	<fstream>
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1570580444 c:\users\jalva\documents\github\aa\turing\include\turing.h
+	<iostream>
+	<string>
+	<sstream>
+	<cstdlib>
+	<ctime>
+
+1570580019 source:c:\users\jalva\documents\github\aa\turing\src\turing.cpp
+	"turing.h"
+
