@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1575163062 source:c:\users\jalva\documents\github\aa\elgamal\src\elgamal.cpp
+	"elgamal.h"
+
+1574800846 c:\users\jalva\documents\github\aa\elgamal\include\elgamal.h
+	<string>
+	<NTL/ZZ.h>
+	"funciones.h"
+	<sstream>
+
+1575160816 c:\users\jalva\documents\github\aa\elgamal\include\funciones.h
+	<iostream>
+	<NTL/ZZ.h>
+	<NTL/vector.h>
+	<chrono>
+	<vector>
+	<stdio.h>
+	<stdlib.h>
+	<ctime>
+	<time.h>
+	<math.h>
+	<bitset>
+
+1575160816 source:c:\users\jalva\documents\github\aa\elgamal\src\funciones.cpp
+	"funciones.h"
+
+1575162794 source:c:\users\jalva\documents\github\aa\elgamal\main.cpp
+	<iostream>
+	"elgamal.h"
+
+1575044573 source:c:\users\jalva\documents\github1\aa\elgamal\main.cpp
+	<iostream>
+	"elgamal.h"
+
+1574800846 c:\users\jalva\documents\github1\aa\elgamal\include\elgamal.h
+	<string>
+	<NTL/ZZ.h>
+	"funciones.h"
+	<sstream>
+
+1574677185 c:\users\jalva\documents\github1\aa\elgamal\include\funciones.h
+	<iostream>
+	<NTL/ZZ.h>
+	<NTL/vector.h>
+	<chrono>
+	<vector>
+	<stdio.h>
+	<stdlib.h>
+	<ctime>
+	<time.h>
+	<math.h>
+	<bitset>
+
+1574817006 source:c:\users\jalva\documents\github1\aa\elgamal\src\elgamal.cpp
+	"elgamal.h"
+
+1574708934 source:c:\users\jalva\documents\github1\aa\elgamal\src\funciones.cpp
+	"funciones.h"
+
