@@ -34,9 +34,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/criba.h" />
 		<Unit filename="include/rsa.h" />
+		<Unit filename="include/vernam.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/criba.cpp" />
 		<Unit filename="src/rsa.cpp" />
+		<Unit filename="src/vernam.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

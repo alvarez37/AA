@@ -25,3 +25,79 @@
 	<vector>
 	<string>
 
+1575158156 source:c:\users\jalva\documents\github\aa\rsa_f\main.cpp
+	<fstream>
+	<NTL/ZZ.h>
+	<iostream>
+	"rsa.h"
+	<stdlib.h>
+	<string>
+	<ctime>
+
+1575156114 c:\users\jalva\documents\github\aa\rsa_f\include\rsa.h
+	<sstream>
+	<NTL/ZZ.h>
+	<iostream>
+	"string"
+	<cstdlib>
+
+1575158121 source:c:\users\jalva\documents\github\aa\rsa_f\src\rsa.cpp
+	"rsa.h"
+	"matlib.h"
+	"criba.h"
+	"RC4.h"
+	<math.h>
+
+1575124968 c:\users\jalva\documents\github\aa\rsa_f\include\euclides.h
+	<NTL/ZZ.h>
+	<iostream>
+	<vector>
+	<string>
+
+1571668329 source:c:\users\jalva\documents\github\aa\rsa_f\src\criba.cpp
+	"criba.h"
+
+1573495037 c:\users\jalva\documents\github\aa\rsa_f\include\criba.h
+	<iostream>
+	<vector>
+	<math.h>
+
+1571668778 source:c:\users\jalva\documents\github\aa\rsa_f\src\vernam.cpp
+	"vernam.h"
+
+1571666214 c:\users\jalva\documents\github\aa\rsa_f\include\vernam.h
+	<iostream>
+	<string>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+
+1575155953 source:c:\users\jalva\documents\github\aa\rsa_f\src\rc4.cpp
+	"RC4.h"
+	"matlibrc4.h"
+
+1575155994 c:\users\jalva\documents\github\aa\rsa_f\include\rc4.h
+	<iostream>
+	<sstream>
+	<string>
+	<vector>
+	<stdint.h>
+	<NTL/ZZ.h>
+	<x86intrin.h>
+	<bits/stdc++.h>
+	<math.h>
+
+1575143471 c:\users\jalva\documents\github\aa\rsa_f\include\matlib.h
+	<NTL/ZZ.h>
+	<iostream>
+	<vector>
+	<string>
+
+1575155994 c:\users\jalva\documents\github\aa\rsa_f\include\matlibrc4.h
+	<NTL/ZZ.h>
+	<iostream>
+	<vector>
+	<string>
+

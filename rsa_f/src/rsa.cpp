@@ -1,26 +1,49 @@
 #include "rsa.h"
-#include "euclides.h"
+#include "matlib.h"
+#include "criba.h"
+#include "RC4.h"
+#include <math.h>
 
-rsa::rsa(){
-  tam_array=alf.size();
-  bits=1024;
-  q=GenPrime_ZZ(bits);
-  p=GenPrime_ZZ(bits-1);
-  n=p*q;
-  phi_n=(p-1)*(q-1);
+rsa::rsa(int bits)
+{
 
-  e=GenPrime_ZZ(bits);
-  while (true) {
+  RC4 r(bits);
+
+  for (size_t i = 0; i < 10; i++)
+  {
+    cout <<" "<< r.get_numero() << endl<< endl;
+  }
+
+  tam_array = alf.size();
+  q = r.get_numero();
+  p = r.get_numero();
+  n = p * q;
+  phi_n = (p - 1) * (q - 1);
+
+  e = r.get_numero();
+  while (!(mcd(e, phi_n)== 1))
+  {
+     e = r.get_numero();
+  }
+
+  /*     tam_array=alf.size();
+    q=GenPrime_ZZ(bits);
+    p=GenPrime_ZZ(bits-1);
+    n=p*q;
+    phi_n=(p-1)*(q-1);
+
+    e=GenPrime_ZZ(bits);
+    while (true) {
     if (mcd(e,phi_n)==1) {
       break;
     }
     e=GenPrime_ZZ(bits);
-    }
+    } */
 
-  d= mod_inverso(e, phi_n );
-  d=modulo(d,phi_n);
+  d = mod_inverso(e, phi_n);
+  d = modulo(d, phi_n);
 
-  std::cout << "-------------------------"  << '\n';
+  std::cout << "-------------------------" << '\n';
   std::cout << "p: " << p << '\n';
   std::cout << "q: " << q << '\n';
   std::cout << "n: " << n << '\n';
@@ -29,126 +52,70 @@ rsa::rsa(){
   std::cout << "d: " << d << '\n';
   std::cout << "tam_array: " << tam_array << '\n';
   std::cout << "-------------------------" << '\n';
-
 }
 
-rsa::rsa(string e_, string n_){
-  e=string_a_zz(e_);
-  n=string_a_zz(n_);
-  std::cout << "-------------------------"  << '\n';
+rsa::rsa(string e_, string n_)
+{
+  e = string_a_zz(e_);
+  n = string_a_zz(n_);
+  std::cout << "-------------------------" << '\n';
   std::cout << "n: " << n << '\n';
   std::cout << "e: " << e << '\n';
   std::cout << "-------------------------" << '\n';
 }
 
-string rsa::cifrado(string txt){
+string rsa::cifrado(string txt)
+{
   //TODO: capturar los digitos de n
-  n_string=zz_a_string(n);
-  n_string_tam=n_string.size();
-
-
-  mensaje_con_0=string_a_string_numerico(txt,alf);
+  n_string = zz_a_string(n);
+  n_string_tam = n_string.size();
+  mensaje_con_0 = completar_ceros_string(txt, alf);
 
   string txt_cifrado_retorno;
   ZZ base;
   ZZ base_por_exponete;
 
   std::cout << "---------------------------------------------" << '\n';
+  std::cout << txt << '\n';
   std::cout << mensaje_con_0 << '\n';
   std::cout << "---------------------------------------------" << '\n';
-  for (int i=0; mensaje_con_0.size()>1 ;i++) {
-
-    base= bloques_de_enteros(mensaje_con_0,n);
-    base_por_exponete=elevar_a_la_potencia_n(base, e ,n);
-    std::cout << "base " << base << " palabra_array [" << i << "] "<< base_por_exponete <<'\n';
-    txt_cifrado_retorno+=zz_a_string(base_por_exponete);
+  for (int i = 0; i < mensaje_con_0.size(); i++)
+  {
+    base = string_a_zz(corta_string(mensaje_con_0, n_string_tam - 1));
+    base_por_exponete = elevar_a_la_potencia_n(base, e, n);
+    std::cout << "base " << base << " palabra_array [" << i << "] " << base_por_exponete << '\n';
+    txt_cifrado_retorno += completar_ceros(zz_a_string(base_por_exponete), n_string_tam);
   }
+
   std::cout << "---------------------------------------------" << '\n';
 
   return txt_cifrado_retorno;
 }
 
-string rsa::cifrado_ascii(string txt){
-  //TODO: capturar los digitos de n
-  n_string=zz_a_string(n);
-  n_string_tam=n_string.size();
-
-  string mensaje=copletar_ceros_ascii(txt);
-
-  // string mensaje="500";
-
-
-  string txt_cifrado_retorno;
-
-  ZZ base;
-  ZZ base_por_exponete;
-  std::cout << mensaje << '\n';
-  for (int i=0;  mensaje.size() >1 ;i++) {
-    base=bloques_de_enteros_atras(mensaje,n);
-    base_por_exponete=elevar_a_la_potencia_n(base, e ,n);
-    std::cout << "base " << base << " palabra_array [" << i << "] "<< base_por_exponete <<'\n';
-    txt_cifrado_retorno.insert(0,zz_a_string(base_por_exponete));
-
-  }
-  std::cout << "---------------------------------------------" << '\n';
-  std::cout << " txt_cifrado_retorno  " << txt_cifrado_retorno << '\n';
-  return txt_cifrado_retorno;
-}
-
-string rsa::descifrado_ascii(string txt){
-  //TODO: capturar los digitos de n
-  n_string=zz_a_string(n);
-  n_string_tam=n_string.size();
-
-  string mensaje=txt;
-
-  string txt_cifrado_retorno;
-  string txt_descifrado_retorno;
-
-  ZZ base;
-  ZZ base_por_exponete;
-
-  for (int i=0; mensaje.size()!=0 ;i++) {
-    base=bloques_de_enteros_atras(mensaje,n);
-    base_por_exponete=elevar_a_la_potencia_n(base, d ,n);
-    std::cout << "base " << base << " palabra_array [" << i << "] "<< base_por_exponete <<'\n';
-    txt_cifrado_retorno.insert(0,zz_a_string(base_por_exponete));
-
-  }
-  std::cout << "---------------------------------------------" << '\n';
-  txt_descifrado_retorno = texto_de_salida_ascii( txt_cifrado_retorno );
-  std::cout << "txt_cifrado_retorno " << txt_descifrado_retorno << '\n';
-  return txt_descifrado_retorno;
-}
-
-
-string rsa::descifrado(string txt){
+string rsa::descifrado(string txt)
+{
   string txt_descifrado_retorno;
   string txt_descifrado;
 
   ZZ base;
   ZZ base_por_exponete;
 
-  for (int i=0; txt.size()>1 ;i++) {
-    base= bloques_de_enteros(txt,n);
-    base_por_exponete=restito(base,modulo(d,p-to_ZZ(1)),modulo(d,q-to_ZZ(1)),p,q);
-    std::cout << "base " << base << " palabra_array [" << i << "] "<< base_por_exponete <<'\n';
-    txt_descifrado_retorno+=zz_a_string(base_por_exponete);
+  for (int i = 0; txt.size() > 0; i++)
+  {
+    base = string_a_zz(corta_string(txt, n_string_tam));
+    base_por_exponete = elevar_a_la_potencia_n(base, d, n);
+    std::cout << "base " << base << " palabra_array [" << i << "] " << base_por_exponete << '\n';
+    txt_descifrado += completar_ceros(zz_a_string(base_por_exponete), n_string_tam - 1);
+    //txt_cifrado_retorno.insert(0,zz_a_string(base_por_exponete));
   }
 
-  std::cout << "numero  " << txt_descifrado_retorno<< '\n';
-  for (int i = 0; i < txt_descifrado_retorno.size()-1; i+=2) {
-    int j = txt_descifrado_retorno[i] - '0';
-    j*=10;
-    int e = txt_descifrado_retorno[i+1] - '0';
-    int f=j+e-10;
-    std::cout << i<<" " <<alf[f] << '\n';
-    txt_descifrado +=alf[f];
-  }
-  return txt_descifrado;
+  std::cout << "mensaje desifrado " << txt_descifrado << '\n';
+  std::cout << "mensaje de salida  " << string_2_block(txt_descifrado, alf) << '\n';
+
+  return string_2_block(txt_descifrado, alf);
 }
 
-ZZ rsa::get_p(){return p;}
-ZZ rsa::get_q(){return q;}
-string rsa::get_n(){return zz_a_string(n);}
-string rsa::get_e(){return zz_a_string(e);}
+ZZ rsa::get_p() { return p; }
+ZZ rsa::get_q() { return q; }
+string rsa::get_n() { return zz_a_string(n); }
+string rsa::get_e() { return zz_a_string(e); }

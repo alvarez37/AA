@@ -12,22 +12,19 @@ using namespace NTL;
 class rsa{
     public:
 
-        rsa();
+        rsa(int);
         ZZ get_p();
         ZZ get_q();
         string get_n();
         string get_e();
 
         string cifrado(string);
-        string cifrado_ascii(string);
-
         string descifrado(string);
-        string descifrado_ascii(string);
 
         rsa(string e_, string n_);
 
     private:
-      string alf="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.";
+      string alf="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ";
       int tam_array;
       ZZ p;
       ZZ q;
