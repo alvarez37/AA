@@ -8,7 +8,6 @@
 #include <ctime>
 
 
-// HOLA NEL
 using namespace std;
 using namespace NTL;
 
